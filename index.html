@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P5 FORM XPLLG3</title>
+    <script>
+      let submitted = false;
+    </script>
+    <!-- <iframe
+      style="display: none"
+      name="hiddenForm"
+      onload="if(submitted){window.location='submit.html';}"
+    ></iframe> -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-box flex-wrap">
+        <div class="image-banner">
+          <img src="image/Andi & Hiskia.png" alt="" class="img-banner" />
+        </div>
+        <div class="login-form">
+          <h1 class="form-h1">BUKU TAMU DIGITAL</h1>
+          <form>
+            <div class="user-box">
+              <input type="text" name="name" required="" />
+              <label>Nama Lengkap</label>
+            </div>
+
+            <div class="user-box">
+              <input type="text" name="category" required="" />
+              <label
+                >Kategori Tamu <span>(Guru/Karyawan/Tamu Undangan)</span></label
+              >
+            </div>
+
+            <div class="user-box">
+              <input type="text" name="level" required="" />
+              <label>Jabatan</label>
+            </div>
+
+            <div class="user-box">
+              <input type="number" name="mobile" required="" />
+              <label>No.Telp</label>
+            </div>
+
+            <div class="tombol">
+              <button type="submit">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="form-image">
+          <img src="image/prewed-p5.png" alt="" class="form-img" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        window.location = `/submit.html?name=${formData.get("name")}&kategori=${formData.get("category")}&jabatan=${formData.get("level")}&no=${formData.get("mobile")}`;
+      });
+    </script>
+  </body>
+</html>
